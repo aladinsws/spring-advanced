@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--    //        IPersistance persitance = new Persistance1();-->
+    <bean id="p1" class="dev.persistance.Persistance1"/>
+
+    <!--    //        IMetier metier = new Metier1(persitance);-->
+    <bean id="m1" class="dev.metier.Metier1">
+        <constructor-arg name="persitance" ref="p1"/>
+    </bean>
+
+    <!--    //        Scanner scanner = new Scanner(System.in);-->
+    <bean id="scanner" class="java.util.Scanner">
+        <constructor-arg>
+            <util:constant static-field="java.lang.System.in"/>
+        </constructor-arg>
+    </bean>
+
+    <!--    //        Presentation1 presentation1 = new Presentation1(metier, scanner);-->
+    <bean id="presentation1" class="dev.presentation.Presentation1" scope="prototype">
+        <constructor-arg name="metier" ref="m1"/>
+        <constructor-arg name="scanner" ref="scanner"/>
+    </bean>
 
 </beans>
+
