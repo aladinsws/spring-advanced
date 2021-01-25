@@ -3,12 +3,14 @@ package dev.service;
 import dev.dao.IPlatDao;
 import dev.entite.Plat;
 import dev.exception.PlatException;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 // @Primary => qui gagne en cas d'ambiguïté
+@Profile("service1")
 public class PlatServiceVersion1 implements IPlatService {
 
     // 2. Injection par champs
