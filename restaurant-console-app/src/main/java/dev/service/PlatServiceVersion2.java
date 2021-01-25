@@ -6,6 +6,7 @@ import dev.exception.PlatException;
 
 import java.util.List;
 
+//@Service
 public class PlatServiceVersion2 implements IPlatService {
 
     private IPlatDao dao;

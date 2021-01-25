@@ -3,16 +3,31 @@ package dev.service;
 import dev.dao.IPlatDao;
 import dev.entite.Plat;
 import dev.exception.PlatException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+// @Primary => qui gagne en cas d'ambiguïté
 public class PlatServiceVersion1 implements IPlatService {
 
+    // 2. Injection par champs
+    // PlatServiceVersion1 p = new PlatServiceVersion1();
+    // p.dao = context.getBean(IPlatDao.class)
+    // @Autowired
     private IPlatDao dao;
 
+    // 1. Injection par constructeur
+    // @Autowired plus nécessaire
     public PlatServiceVersion1(IPlatDao dao) {
         this.dao = dao;
     }
+
+    // 3. Injection par setter
+//    @Autowired
+//    public void setDao(IPlatDao dao) {
+//        this.dao = dao;
+//    }
 
     @Override
     public List<Plat> listerPlats() {

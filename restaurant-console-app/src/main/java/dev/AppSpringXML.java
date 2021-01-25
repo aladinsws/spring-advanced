@@ -7,6 +7,16 @@ public class AppSpringXML {
 
     public static void main(String[] args) {
 
+        // Java 7 - try with resources
+        //      implements AutoCloseable
+//        try (...){
+//
+//        } catch (e) {
+//
+//        } finally {
+//            // appel du close()
+//        }
+
         // création du contexte Spring
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-config-memoire.xml");) {
             Menu menu = context.getBean(Menu.class);
