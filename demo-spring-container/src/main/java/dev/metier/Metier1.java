@@ -1,7 +1,9 @@
 package dev.metier;
 
 import dev.persistance.IPersistance;
+import org.springframework.stereotype.Service;
 
+@Service
 public class Metier1 implements IMetier {
 
     private IPersistance persitance;
