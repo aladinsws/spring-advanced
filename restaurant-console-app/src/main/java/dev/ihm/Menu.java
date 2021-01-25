@@ -6,13 +6,16 @@ import dev.ihm.options.OptionAjouterPlat;
 import dev.ihm.options.OptionListerPlats;
 import dev.ihm.options.OptionTerminer;
 import dev.service.IPlatService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 @Controller
+//@Scope("prototype")
 public class Menu {
 
     private Map<Integer, IOptionMenu> actions = new HashMap<>();
@@ -20,10 +23,22 @@ public class Menu {
     private String menu;
     private Scanner scanner;
 
-    public Menu(Scanner scanner, /*@Qualifier("platServiceVersion1")*/ IPlatService service) {
+    public Menu(Scanner scanner, IPlatService service) {
         actions.put(1, new OptionListerPlats(service));
         actions.put(2, new OptionAjouterPlat(scanner, service));
         actions.put(99, new OptionTerminer());
+        this.scanner = scanner;
+    }
+
+    @Autowired
+    public Menu(Scanner scanner, List<IOptionMenu> optionMenus) {
+
+        int index = 1;
+        for (IOptionMenu optionMenu : optionMenus) {
+            actions.put(index, optionMenu);
+            index++;
+        }
+
         this.scanner = scanner;
     }
 

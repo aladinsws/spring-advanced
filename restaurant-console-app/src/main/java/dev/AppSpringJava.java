@@ -1,18 +1,21 @@
 package dev;
 
-import dev.config.AppConfigV1;
+import dev.config.AppConfig;
 import dev.ihm.Menu;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AppSpringJava {
 
+
     public static void main(String[] args) {
 
-        // création du contexte Spring
-        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfigV1.class)) {
-            Menu menu = context.getBean(Menu.class);
-            menu.afficher();
-        } // context.close() appelé automatiquement même s'il y a une erreur
+        // Création du contexte Spring à partir d'une configuration Java
+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class)) {
+            Menu menu1 = context.getBean(Menu.class);
+            Menu menu2 = context.getBean(Menu.class);
+            menu2.afficher();
+        }
+
 
     }
 }

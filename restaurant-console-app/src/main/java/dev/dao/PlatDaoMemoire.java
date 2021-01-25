@@ -1,12 +1,11 @@
 package dev.dao;
 
 import dev.entite.Plat;
-import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+//@Repository
 public class PlatDaoMemoire implements IPlatDao {
 
     private List<Plat> listePlats = new ArrayList<>();
