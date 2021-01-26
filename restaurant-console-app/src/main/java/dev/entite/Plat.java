@@ -4,8 +4,22 @@ import java.util.Objects;
 
 public class Plat {
 
+    private Integer id;
     private String nom;
     private Integer prixEnCentimesEuros;
+    private Integer prix;
+
+    public Integer getPrix() {
+        return prixEnCentimesEuros;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Plat() {
     }
