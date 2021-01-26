@@ -1,15 +1,14 @@
 package dev.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 
 import java.util.Scanner;
 
 @Configuration
-@ComponentScan({"dev.ihm", "dev.service", "dev.dao"})
+@ComponentScan({"dev.ihm", "dev.service", "dev.dao", "dev.aspect"})
 @PropertySource("classpath:app.properties")
+// activer la prise en compte des aspects
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class AppConfig {
 
     // <bean id="scanner" class="java.util.Scanner"/>

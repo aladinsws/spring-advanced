@@ -2,3 +2,5 @@ Plat 1;1200
 Plat 2;1400
 Plat 3;6000
 Plat 4;700
+supoerrrrr;1500000
+supppperrrr;1500000

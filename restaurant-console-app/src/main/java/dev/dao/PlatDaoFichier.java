@@ -15,6 +15,17 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
+// Proxy JDK
+//class $Proxy32 implements IPlatDao {
+//    PlatDaoFichier dao;
+//}
+//
+//// Proxy CGLIB
+//class Proxy extends PlatDaoFichier {
+//
+//}
+
+
 @Repository
 @Profile("fichier")
 public class PlatDaoFichier implements IPlatDao {
