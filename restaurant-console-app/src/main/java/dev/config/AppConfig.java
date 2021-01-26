@@ -9,7 +9,7 @@ import java.util.Scanner;
 @PropertySource("classpath:app.properties")
 // activer la prise en compte des aspects
 @EnableAspectJAutoProxy(proxyTargetClass = true)
-@Import(DataSourceConfig.class)
+@Import({DataSourceConfig.class, JpaConfig.class})
 public class AppConfig {
 
     // <bean id="scanner" class="java.util.Scanner"/>

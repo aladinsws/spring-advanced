@@ -31,7 +31,9 @@ public class LogAspect {
     public Object perf(ProceedingJoinPoint pjp) throws Throwable {
 
         long start = System.currentTimeMillis();
+        // begin
         Object resultat = pjp.proceed();// invocation de IPlatDao.listerPlats()
+        // commit
         long end = System.currentTimeMillis();
 
         System.out.println("PERF IPlatDao.listerPlats() : " + (end - start) + " ms");
