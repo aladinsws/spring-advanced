@@ -1,6 +1,7 @@
 package dev.entite;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +14,23 @@ public class Plat {
     private String nom;
     @Column(name = "prix")
     private Integer prixEnCentimesEuros;
+
+    @ManyToMany
+    @JoinTable(
+            name = "plat_ingredient",
+            joinColumns = @JoinColumn(name = "plat_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "id")
+    )
+    private List<Ingredient> ingredients;
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     @Transient
     private Integer prix;
 

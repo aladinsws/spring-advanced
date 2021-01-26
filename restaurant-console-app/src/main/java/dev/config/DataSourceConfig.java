@@ -9,7 +9,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 @Configuration
-@Profile({"jdbc", "jpa"})
+@Profile({"jdbc", "jpa", "datajpa"})
 public class DataSourceConfig {
 
     @Bean
