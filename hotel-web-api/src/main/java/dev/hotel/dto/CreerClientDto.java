@@ -1,9 +1,18 @@
 package dev.hotel.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class CreerClientDto {
 
+    @JsonProperty("name")
+    @NotBlank
+    @Size(min = 2)
     private String nom;
+    @NotBlank
+    @Size(min = 2)
     private String prenoms;
 
     public String getNom() {
