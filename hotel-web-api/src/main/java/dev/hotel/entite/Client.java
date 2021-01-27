@@ -1,12 +1,17 @@
 package dev.hotel.entite;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import dev.hotel.views.View;
+
 import javax.persistence.Entity;
 
 @Entity
 public class Client extends BaseEntite {
-    
+
+    @JsonView(View.Synthetique.class)
     private String nom;
 
+    @JsonView(View.Complete.class)
     private String prenoms;
 
     public Client() {
